@@ -50,8 +50,8 @@ $ gitbook serve
 You can see your local version by using a web-browser to navigate to `http://localhost:4000` or wherever it says it's serving the book.
 
 [conduct]: CONDUCT.md
-[repo]: https://github.com/lhcb/ostap-tutorials/issues
-[issues]: https://github.com/lhcb/ostap-tutorials/issues
+[repo]: https://github.com/OstapHEP/ostap-tutorials/issues
+[issues]: https://github.com/OstapHEP/ostap-tutorials/issues
 [license]: LICENSE.md
 [pro-git-chapter]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [gh-fork]: https://help.github.com/articles/fork-a-repo/
