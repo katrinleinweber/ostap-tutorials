@@ -16,7 +16,7 @@ git init
 git config user.name "Chris Burr"
 git config user.email "c.b@cern.ch"
 
-git remote add upstream "https://$GH_TOKEN@github.com/lhcb/ostap-tutorials.git"
+git remote add upstream "https://$GH_TOKEN@github.com/OstapHEP/ostap-tutorials.git"
 git fetch upstream
 git reset upstream/gh-pages
 
