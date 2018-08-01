@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>More on histograms · GitBook</title>
+        <title>TMVA · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="hparams.html" />
+    <link rel="next" href="chopping.html" />
     
     
-    <link rel="prev" href="../getting-started/DBASE.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -188,9 +188,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="2.2" data-path="./">
+        <li class="chapter " data-level="2.2" data-path="../more-on-histograms/">
             
-                <a href="./">
+                <a href="../more-on-histograms/">
             
                     
                     More on histograms
@@ -202,9 +202,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.2.1" data-path="hparams.html">
+        <li class="chapter " data-level="2.2.1" data-path="../more-on-histograms/hparams.html">
             
-                <a href="hparams.html">
+                <a href="../more-on-histograms/hparams.html">
             
                     
                     Histogram parameterization
@@ -395,9 +395,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../tools/">
+        <li class="chapter " data-level="3.2" data-path="./">
             
-                <a href="../tools/">
+                <a href="./">
             
                     
                     Tools
@@ -409,9 +409,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.2.1" data-path="../tools/tmva.html">
+        <li class="chapter active" data-level="3.2.1" data-path="tmva.html">
             
-                <a href="../tools/tmva.html">
+                <a href="tmva.html">
             
                     
                     TMVA
@@ -422,9 +422,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2.2" data-path="../tools/chopping.html">
+        <li class="chapter " data-level="3.2.2" data-path="chopping.html">
             
-                <a href="../tools/chopping.html">
+                <a href="chopping.html">
             
                     
                     Chopping
@@ -435,9 +435,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2.3" data-path="../tools/reweighting.html">
+        <li class="chapter " data-level="3.2.3" data-path="reweighting.html">
             
-                <a href="../tools/reweighting.html">
+                <a href="reweighting.html">
             
                     
                     Reweighting
@@ -523,7 +523,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >More on histograms</a>
+        <a href=".." >TMVA</a>
     </h1>
 </div>
 
@@ -538,10 +538,89 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="more-on-histograms">More on Histograms</h1>
-<ul>
-<li><a href="hparams.html">Histogram parameterization</a></li>
-</ul>
+                                <h1 id="using-tmva">Using <code>TMVA</code></h1>
+<p>Ostap hosts couple of classes, that simplifies the training and using of <a href="https://root.cern.ch/tmva" target="_blank"><code>TMVA</code></a>.</p>
+<h2 id="training-tmva"><em>Training <code>TMVA</code></em></h2>
+<pre><code class="lang-python">tSignal  = ... <span class="hljs-comment">## signal     TTree/TChain</span>
+tBkg     = ... <span class="hljs-comment">## background TTree/TChain</span>
+<span class="hljs-comment">## book TMVA trainer     </span>
+<span class="hljs-keyword">from</span> ostap.tools.tmva <span class="hljs-keyword">import</span> Trainer 
+trainer = Trainer (
+   name    = <span class="hljs-string">&apos;TestTMVA&apos;</span> ,   
+   methods = [
+   <span class="hljs-comment"># type                   name   configuration</span>
+   ( ROOT.TMVA.Types.kMLP        , <span class="hljs-string">&apos;MLP&apos;</span>        , <span class="hljs-string">&apos;H:!V:EstimatorType=CE:VarTransform=N:NCycles=200:HiddenLayers=N+3:TestRate=5:!UseRegulator&apos;</span> ) ,
+   ( ROOT.TMVA.Types.kBDT        , <span class="hljs-string">&apos;BDTG&apos;</span>       , <span class="hljs-string">&apos;H:!V:NTrees=100:MinNodeSize=2.5%:BoostType=Grad:Shrinkage=0.10:UseBaggedBoost:BaggedSampleFraction=0.5:nCuts=20:MaxDepth=2&apos;</span> ) , 
+   ( ROOT.TMVA.Types.kCuts       , <span class="hljs-string">&apos;Cuts&apos;</span>       , <span class="hljs-string">&apos;H:!V:FitMethod=MC:EffSel:SampleSize=200000:VarProp=FSmart&apos;</span> ) ,
+   ( ROOT.TMVA.Types.kFisher     , <span class="hljs-string">&apos;Fisher&apos;</span>     , <span class="hljs-string">&apos;H:!V:Fisher:VarTransform=None:CreateMVAPdfs:PDFInterpolMVAPdf=Spline2:NbinsMVAPdf=50:NsmoothMVAPdf=10&apos;</span> ),
+   ( ROOT.TMVA.Types.kLikelihood , <span class="hljs-string">&apos;Likelihood&apos;</span> , <span class="hljs-string">&apos;H:!V:TransformOutput:PDFInterpol=Spline2:NSmoothSig[0]=20:NSmoothBkg[0]=20:NSmoothBkg[1]=10:NSmooth=1:NAvEvtPerBin=50&apos;</span> )
+   ] ,
+   variables  = [ <span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-string">&apos;var2&apos;</span> ,  <span class="hljs-string">&apos;var3&apos;</span> ] , <span class="hljs-comment">## Variables to be used for training </span>
+   signal     = tSignal                       , <span class="hljs-comment">## ``Signal&apos;&apos; sample </span>
+   background = tBkg                          , <span class="hljs-comment">## ``Background&apos;&apos; sample  </span>
+   verbose    = <span class="hljs-keyword">False</span> )
+</code></pre>
+<p>Optionally one can specify also <code>signal_cuts</code> and <code>background_cuts</code>.</p>
+<p>Traing <code>TMVA</code> itself is trivial, one needs to invoke the method <code>train</code>:</p>
+<pre><code class="lang-python">weights_files = trainer.train ()
+</code></pre>
+<p>It  returs the list/tuple of <em>weight-<code>XML</code>-files</em>, the output of <code>TMVA</code> trainer.
+Optionally one can retrieve also the list of  _<code>C++-class</code>-files,  using the proeprty <code>class_files</code> or  everything together in a form of <code>tar</code>-file using the property
+<code>tar_file</code>:</p>
+<pre><code class="lang-python">weight_files = trainer.weight_files <span class="hljs-comment">## XML weights  </span>
+class_files  = trainer.class_files  <span class="hljs-comment">## C++ classes </span>
+tar_file     = trainer.tar_file     <span class="hljs-comment">## everything together</span>
+</code></pre>
+<h2 id="using-tmva"><em>Using <code>TMVA</code></em></h2>
+<p>To use trained <code>TMVA</code> one exploits <em><code>TMVA</code> reader</em>:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> ostap.tools.tmva <span class="hljs-keyword">import</span> Reader
+reader = Reader( 
+   <span class="hljs-string">&apos;MyMLP&apos;</span> ,
+   variables     = [ (<span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-keyword">lambda</span> s : s.var1 )   ,
+                     (<span class="hljs-string">&apos;var2&apos;</span> , <span class="hljs-keyword">lambda</span> s : s.var2 )   ,
+                     (<span class="hljs-string">&apos;var3&apos;</span> , <span class="hljs-keyword">lambda</span> s : s.var3 ) ] ,
+  weights_files = tar_file  )
+</code></pre>
+<p><div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(2871900207);" id="what-is-lambda-s--svar1-hereclick-to-expand"><i class="fa fa-bell"></i> What is <code>lambda s : s.var1</code> here?<span id="heading-2871900207">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-2871900207"><p>The the element of the pair is, obviously, the variable name.
+The second   argument is <em>accessor function</em>. 
+It will be applied for <em>1-argument call</em> of the <em>method</em>.
+E.g. in this example, one  can apply it to <code>TTree</code>/<code>TChain</code>/<code>RooAbsData</code>/<code>RooArgSet</code> and the variable 
+<code>var1</code> from   this <code>TTree</code>/<code>TChain</code>/<code>RooAbsData</code>/<code>RooArgSet</code> will be used as <code>&apos;var1&apos;</code> for the <code>TMVA</code>.
+Accessor  functions coudl be  trivial, as on this case,  but they also can be less trivial:</p>
+<pre><code class="lang-python">variables     = [ (<span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-keyword">lambda</span> s : s.rapidity     )   , <span class="hljs-comment">## use another name </span>
+                  (<span class="hljs-string">&apos;var2&apos;</span> , <span class="hljs-keyword">lambda</span> s : s.pt/<span class="hljs-number">1000</span>      )   , <span class="hljs-comment">## make some rescaling</span>
+                  (<span class="hljs-string">&apos;var3&apos;</span> , <span class="hljs-keyword">lambda</span> s : atan2(s.y,s.x) ) ] , <span class="hljs-comment">## make more complicated calculations</span>
+</code></pre>
+<p>If one wants to use other objects for <em>1-argument call</em>, other set of accessor  functions   need to be supplied.
+E.g. if data  are expected to be supplied  as a <code>tuple</code>/<code>list</code>/<code>std::vector&lt;...&gt;</code>, one   can use </p>
+<pre><code class="lang-python">variables     = [ (<span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-keyword">lambda</span> s : s[<span class="hljs-number">0</span>] )   , <span class="hljs-comment">## use another name </span>
+                  (<span class="hljs-string">&apos;var2&apos;</span> , <span class="hljs-keyword">lambda</span> s : s[<span class="hljs-number">1</span>] )   , <span class="hljs-comment">## make some rescaling</span>
+                  (<span class="hljs-string">&apos;var3&apos;</span> , <span class="hljs-keyword">lambda</span> s : a[<span class="hljs-number">2</span>] ) ] , <span class="hljs-comment">## make more complicated calculations</span>
+</code></pre>
+<p>One  can  also use just the plain list of variable names:</p>
+<pre><code class="lang-python">variables     = [ <span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-string">&apos;var2&apos;</span> , <span class="hljs-string">&apos;var3&apos;</span> ] 
+</code></pre>
+<p>This list will be automatically transformed into </p>
+<pre><code class="lang-python">variables     = [ (<span class="hljs-string">&apos;var1&apos;</span> , <span class="hljs-keyword">lambda</span> s : getattr( s , <span class="hljs-string">&apos;var1&apos;</span>) ) ,
+                  (<span class="hljs-string">&apos;var2&apos;</span> , <span class="hljs-keyword">lambda</span> s : getattr( s , <span class="hljs-string">&apos;var2&apos;</span>) ) ,
+                  (<span class="hljs-string">&apos;var3&apos;</span> , <span class="hljs-keyword">lambda</span> s : getattr( s , <span class="hljs-string">&apos;var3&apos;</span>) ) ]
+</code></pre>
+</div></div></p>
+<p>As <code>weight_files</code> arguments one can use either the list of <em>weights-files</em> from <em>the trainer</em>, or, <em>much easier</em>, use the single <em>&apos;tar&apos;-file</em> from <em>the trainer</em>. The methods,  available from the weight files can be checked as</p>
+<pre><code class="lang-python"><span class="hljs-keyword">print</span> reader.methods 
+`
+</code></pre>
+<p>And the usage of the reader is rather trivial, e.g. one can  explicitly request the  responce for certain set of arguments:</p>
+<pre><code class="lang-python">v1,  v2,  v3 = .... 
+mlp  = reader[<span class="hljs-string">&apos;MLP&apos;</span>]                     <span class="hljs-comment">## get  one method </span>
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;MLP value is %s&apos;</span>  % mlp ( v1 , v2 ,  v3 )
+</code></pre>
+<p>In practice, one practially always uses it with <code>TTree</code>/<code>TChain</code>/<code>RooAbsData</code>/<code>RooArgSet</code>, in this  case one use <em>1-argument call</em>,  assuming then proper <em>accessor functions</em> are supplied: </p>
+<pre><code class="lang-python">tree = ... <span class="hljs-comment">##  the tree </span>
+mlp  = reader[<span class="hljs-string">&apos;MLP&apos;</span>]                     <span class="hljs-comment">## get  one method</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> tree :                          <span class="hljs-comment">## loop over the entries </span>
+    <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;MLP value is %s&apos;</span>  % mlp ( i ) <span class="hljs-comment">## get the  value</span>
+</code></pre>
 
                                 
                                 </section>
@@ -569,12 +648,12 @@
 
             
                 
-                <a href="../getting-started/DBASE.html" class="navigation navigation-prev " aria-label="Previous page: Persistency">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Tools">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="hparams.html" class="navigation navigation-next " aria-label="Next page: Histogram parameterization">
+                <a href="chopping.html" class="navigation navigation-next " aria-label="Next page: Chopping">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -585,7 +664,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"More on histograms","level":"2.2","depth":1,"next":{"title":"Histogram parameterization","level":"2.2.1","depth":2,"path":"more-on-histograms/hparams.md","ref":"more-on-histograms/hparams.md","articles":[]},"previous":{"title":"Persistency","level":"2.1.4","depth":2,"path":"getting-started/DBASE.md","ref":"getting-started/DBASE.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"more-on-histograms/README.md","mtime":"2018-08-01T08:46:14.294Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:47:28.452Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"TMVA","level":"3.2.1","depth":2,"next":{"title":"Chopping","level":"3.2.2","depth":2,"path":"tools/chopping.md","ref":"tools/chopping.md","articles":[]},"previous":{"title":"Tools","level":"3.2","depth":1,"path":"tools/README.md","ref":"tools/README.md","articles":[{"title":"TMVA","level":"3.2.1","depth":2,"path":"tools/tmva.md","ref":"tools/tmva.md","articles":[]},{"title":"Chopping","level":"3.2.2","depth":2,"path":"tools/chopping.md","ref":"tools/chopping.md","articles":[]},{"title":"Reweighting","level":"3.2.3","depth":2,"path":"tools/reweighting.md","ref":"tools/reweighting.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"tools/tmva.md","mtime":"2018-08-01T08:46:14.298Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:47:28.452Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

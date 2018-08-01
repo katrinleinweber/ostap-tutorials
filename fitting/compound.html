@@ -1,0 +1,886 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Compound fit models · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="splot.html" />
+    
+    
+    <link rel="prev" href="3d.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The ostap tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../getting-started/VE.html">
+            
+                <a href="../getting-started/VE.html">
+            
+                    
+                    Values with uncertainties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../getting-started/Histos.html">
+            
+                <a href="../getting-started/Histos.html">
+            
+                    
+                    Simple operations with histograms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../getting-started/Trees.html">
+            
+                <a href="../getting-started/Trees.html">
+            
+                    
+                    Simple operations with trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../getting-started/DBASE.html">
+            
+                <a href="../getting-started/DBASE.html">
+            
+                    
+                    Persistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../more-on-histograms/">
+            
+                <a href="../more-on-histograms/">
+            
+                    
+                    More on histograms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../more-on-histograms/hparams.html">
+            
+                <a href="../more-on-histograms/hparams.html">
+            
+                    
+                    Histogram parameterization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Using RooFit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="decorations.html">
+            
+                <a href="decorations.html">
+            
+                    
+                    Useful decorations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="models.html">
+            
+                <a href="models.html">
+            
+                    
+                    PDFs and the basic models
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="signals.html">
+            
+                <a href="signals.html">
+            
+                    
+                    Signal models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="backgrounds.html">
+            
+                <a href="backgrounds.html">
+            
+                    
+                    Background models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="others.html">
+            
+                <a href="others.html">
+            
+                    
+                    Other models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="2d.html">
+            
+                <a href="2d.html">
+            
+                    
+                    2D-models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="3d.html">
+            
+                <a href="3d.html">
+            
+                    
+                    3D-models
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.3" data-path="compound.html">
+            
+                <a href="compound.html">
+            
+                    
+                    Compound fit models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="splot.html">
+            
+                <a href="splot.html">
+            
+                    
+                    sPlot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="weighted.html">
+            
+                <a href="weighted.html">
+            
+                    
+                    Weighted fits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="contraints.html">
+            
+                <a href="contraints.html">
+            
+                    
+                    Constraints
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../tools/tmva.html">
+            
+                <a href="../tools/tmva.html">
+            
+                    
+                    TMVA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../tools/chopping.html">
+            
+                <a href="../tools/chopping.html">
+            
+                    
+                    Chopping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../tools/reweighting.html">
+            
+                <a href="../tools/reweighting.html">
+            
+                    
+                    Reweighting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <a target="_blank" href="ref://ostap-tutorials.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Compound fit models</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="compound-fit-models">Compound fit models</h1>
+<h2 id="1d-case"><code>1D</code>-case</h2>
+<p>Ostap offers a very easy way to build the compound fit models from the individual components. E.g.the case of  the trivial fit model that consists of one signal and one background components:</p>
+<pre><code class="lang-python">signal      = ... 
+background  = ...
+model    = Fit1D ( signal = signal , background = backround ) <span class="hljs-comment">## &lt;-- HERE! </span>
+dataset  = ...
+result , frame = model.fitTo ( dataset , draw = <span class="hljs-keyword">True</span> ) <span class="hljs-comment">## fit and vizualize</span>
+</code></pre>
+<p>The  fit model can contains several <em>signal</em> and <em>backround</em> components, and also <em>other</em> components :</p>
+<pre><code class="lang-python&apos;">model    = Fit1D ( signal = signal ,
+                   background       = backround , 
+                   othersignals     = [ ... ]   , 
+                   otherbackgrounds = [ ... ]   , 
+                   others           = [ ... ]   )
+</code></pre>
+<p>In this case several <em>signal</em>, <em>backgrounds</em> and/or <em>others</em> components can be combined into single <em>signal</em>, 
+<em>backround</em> and/or <em>others</em> components:</p>
+<pre><code class="lang-python&apos;">model    = Fit1D ( combine_signals     = True , 
+                   combine_backgrounds = True , 
+                   combine_others      = True , ... )
+</code></pre>
+<p>In practice it is very convinients approach is several signal/background/other componens are specified. </p>
+<p>On default <em>extended</em> `RooAddPdf&apos; fit model is created, however ,  one can force <em>non-extended</em> model:</p>
+<pre><code class="lang-python">model    = Fit1D ( extended = <span class="hljs-keyword">False</span> , ... )
+</code></pre>
+<p>In this case one can also instruct the class <code>Fit1D</code> to create <em>recursive</em> (default)  or <em>non-recursive</em> fit fractions:</p>
+<pre><code class="lang-python">model    = Fit1D ( extended = <span class="hljs-keyword">False</span> , recursive = <span class="hljs-keyword">False</span> , ... )
+</code></pre>
+<p>All components (<em>signal/background/others</em>)  can be specified as ostap-based models. Also one can provide them in a form of bare <code>RooAbsPdf</code>, but for this case one needs to provide also <code>xvar</code>-variable</p>
+<pre><code class="lang-python">mass  = ROOT.RooRealVar(<span class="hljs-string">&apos;mass&apos;</span>,<span class="hljs-string">&apos;mass&apos;</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+gauss = ROOT.RooGaussian( <span class="hljs-string">&apos;Gauss&apos;</span>, <span class="hljs-string">&apos;Gauss&apos;</span>, mass , ... )
+model = Fit1D( signal = gauss , xvar = mass , ... )
+</code></pre>
+<p>For  <em>background</em> components there is also an alternative way to specify it: </p>
+<ul>
+<li><code>None</code> : <code>RooPolynomial</code> of zero degree (uniform distribution) will be created and used as <em>background</em> component<ul>
+<li>Attention: <code>background=None</code> does <em>not</em> imply the absence of background component</li>
+</ul>
+</li>
+<li>negative integer <code>n</code> :  ostap model <code>PolyPos_pdf</code> will be created and used as <em>background</em> component. This model corresponds to the <em>positive</em> polynomial of  degree <code>-n</code>. The polinomial is constrained to be non-negative for the whole considered interval of <code>xvar</code>.  This constraint allows rather robust and stable fits, especialy  for the low-statistics case. </li>
+<li>non-negative integer <code>n</code>: ostap model <code>Bkg_pdf</code>, that  is a product of the exponential function and the <em>positive</em> polynomial of degree <code>n</code> will be created and used as <em>background</em>  component. Note: <ul>
+<li>The <code>background=0</code> case corresponds to simple exponential backtround </li>
+<li>Since the polynomial is constrained  to be <em>non-negative</em> this PDF is very stable and robust, especually for the low-statistic case,</li>
+</ul>
+</li>
+<li>as <code>RooAbsReal</code> object,  in this  case it is interpreted as the exponental slope</li>
+</ul>
+<p>Actually, the separation into <em>signal</em>, <em>background</em> and <em>other</em> components is a bit arbitrary. However it is helpful for</p>
+<ul>
+<li>to define the meaningful names for the fit parameters</li>
+<li>to separate different components for visualisation, since different styles (lines, colors, etc)  are used for differentr categories</li>
+</ul>
+<h3 id="access-to-the-model--components">Access to the model  components</h3>
+<p>The individual components can be accessed  using python <em>properties</em></p>
+<pre><code class="lang-python">gaudd = Gauss_pdf ( ... 
+model = Fit1D ( signal = gauss , ... ) 
+<span class="hljs-keyword">print</span> model.signal.sigma  <span class="hljs-comment">##   get sigma of Gauss </span>
+<span class="hljs-keyword">print</span> model.signal.mean   <span class="hljs-comment">##   get mean  of Gauss</span>
+</code></pre>
+<h3 id="fit-parameters">Fit parameters</h3>
+<p>The parametters of the created <code>RooAddPdf</code> can be accessed via python properties, 
+e.g. for <em>extended</em> fits:</p>
+<pre><code class="lang-python">gaudd = Gauss_pdf ( ... 
+model = Fit1D ( signal = gauss , ... ) 
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;signal yield(s):&apos;</span> , model.S   
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;background(s):&apos;</span>   , model.B
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;others: &apos;</span>         , model.C
+model.S = <span class="hljs-number">100</span>   <span class="hljs-comment">## set value of signal component to be 100 events </span>
+model.B.fix(<span class="hljs-number">50</span>) <span class="hljs-comment">## fix the yield of the background component at 50  events </span>
+model.draw()
+</code></pre>
+<p>Depending on the number of corresponsing componens and flags <code>combine_signals</code>, <code>combine_backgrounds</code>, <code>combine_others</code> these properties can be <em>scalar</em> values or arrays/tuples.</p>
+<p>For  <code>combine_signal=True</code>, <code>combine_backgrounds =True</code>,  <code>combine_others=True</code> cases oen also gets properrties <code>fS</code> , <code>fB</code> and <code>fC</code> that corresponds to the  fractions of individual <em>signal/backgroud/others</em> components for the compound signal/ <em>signal/backgroud/others</em>.</p>
+<p>For <em>non-extended</em> fits, the main parameters are <em>fractions</em>:</p>
+<pre><code class="lang-python">gaudd = Gauss_pdf ( ... 
+model = Fit1D ( signal = gauss , ... , extended = <span class="hljs-keyword">False</span> ) 
+...
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;fractions:&apos;</span> , model.F
+</code></pre>
+<h3 id="extended-multi-component-fit-model"><em>Extended multi-component fit model</em></h3>
+<pre><code class="lang-python">model_ext1 = Models.Fit1D (
+    name             = <span class="hljs-string">&apos;EXT1&apos;</span>     , 
+    signal           =   signal_1 ,
+    othersignals     = [ signal_2 , signal_3 ] ,
+    background       =   wide_1   ,
+    otherbackgrounds = [ wide_2 ] ,
+    others           = [ narrow_1 , narrow_2 ] ,
+    )
+</code></pre>
+<p>One can define some initial setting for fit-parameters:</p>
+<pre><code class="lang-python">model_ext1.S[<span class="hljs-number">0</span>].value = <span class="hljs-number">5000</span>
+model_ext1.S[<span class="hljs-number">1</span>].value = <span class="hljs-number">5000</span> 
+model_ext1.S[<span class="hljs-number">2</span>].value = <span class="hljs-number">5000</span> 
+
+model_ext1.B[<span class="hljs-number">0</span>].value = <span class="hljs-number">1700</span>
+model_ext1.B[<span class="hljs-number">1</span>].value = <span class="hljs-number">2300</span> 
+
+model_ext1.C[<span class="hljs-number">0</span>].value =  <span class="hljs-number">500</span>
+model_ext1.C[<span class="hljs-number">1</span>].value =  <span class="hljs-number">400</span>
+</code></pre>
+<p>The fit itself is trivial </p>
+<pre><code class="lang-python">r, f = model_ext1.fitTo ( dataset , draw = <span class="hljs-keyword">False</span> , silent = <span class="hljs-keyword">True</span> )
+r, f = model_ext1.fitTo ( dataset , draw = <span class="hljs-keyword">False</span> , silent = <span class="hljs-keyword">True</span> )
+</code></pre>
+<p>And accessing fit results is also simple:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Signals               [S]:&apos;</span> , model_ext1.S
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Backgrounds           [B]:&apos;</span> , model_ext1.B
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Components            [C]:&apos;</span> , model_ext1.C
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Fractions             [F]:&apos;</span> , model_ext1.F
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Signal fractions     [fS]:&apos;</span> , model_ext1.fS
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Background fractions [fB]:&apos;</span> , model_ext1.fB
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Component fractions  [fC]:&apos;</span> , model_ext1.fC
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Yields           [yields]:&apos;</span> , model_ext1.yields
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;Fractions     [fractions]:&apos;</span> , model_ext1.fractions
+</code></pre>
+<h3 id="extended-fit-model-with-compound-components"><em>Extended fit model with compound components</em></h3>
+<pre><code class="lang-python">model_ext2 = Models.Fit1D (
+    name                = <span class="hljs-string">&apos;EXT2&apos;</span>     , 
+    signal              =   signal_1 ,
+    othersignals        = [ signal_2 , signal_3 ] ,
+    background          =   wide_1   ,
+    otherbackgrounds    = [ wide_2 ] ,
+    others              = [ narrow_1 , narrow_2 ] ,
+    <span class="hljs-comment">#</span>
+    combine_signals     = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;-- HERE </span>
+    combine_backgrounds = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;-- HERE </span>
+    combine_others      = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;-- HERE</span>
+</code></pre>
+<p>Setting the initial values of fit parameters is trivial:</p>
+<pre><code class="lang-python">model_ext2.S  = <span class="hljs-number">5000</span>
+model_ext2.B  = <span class="hljs-number">4200</span>
+model_ext2.C  =  <span class="hljs-number">700</span>
+
+model_ext2.fS[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.33</span> 
+model_ext2.fS[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.50</span>
+
+model_ext2.fB[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.40</span> 
+model_ext2.fC[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.60</span>
+</code></pre>
+<p>The fit itself and access to fit parameters is the same as above.</p>
+<h3 id="non-extended--multi-component-fit-model-with-non-recursive-fit-fractions"><em>Non-extended  multi-component fit model with non-recursive fit-fractions</em></h3>
+<pre><code class="lang-python">model_ne1 = Models.Fit1D (
+    name                = <span class="hljs-string">&apos;NE1&apos;</span>                   , 
+    signal              =   signal_1              , 
+    othersignals        = [ signal_2 , signal_3 ] ,
+    background          =   wide_1   ,
+    otherbackgrounds    = [ wide_2 ] ,
+    others              = [ narrow_1 , narrow_2 ] ,
+    <span class="hljs-comment">##</span>
+    extended            = <span class="hljs-keyword">False</span> , <span class="hljs-comment">## &lt;--- HERE</span>
+    recursive           = <span class="hljs-keyword">False</span>   <span class="hljs-comment">## &lt;--- HERE </span>
+    )
+</code></pre>
+<p>Setting the initial values of fit-fractions:</p>
+<pre><code class="lang-python">model_ne1.F[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.25</span>
+model_ne1.F[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.25</span>
+model_ne1.F[<span class="hljs-number">2</span>].value = <span class="hljs-number">0.25</span>
+model_ne1.F[<span class="hljs-number">3</span>].value = <span class="hljs-number">0.08</span>
+model_ne1.F[<span class="hljs-number">4</span>].value = <span class="hljs-number">0.12</span>
+model_ne1.F[<span class="hljs-number">5</span>].value = <span class="hljs-number">0.05</span>
+</code></pre>
+<p>The fit itself and access to fit parameters is the same as above.</p>
+<h3 id="non-extended--multi-component-fit-model-with-recursive-fit-fractions"><em>Non-extended  multi-component fit model with recursive fit-fractions</em></h3>
+<pre><code class="lang-python">model_ne2 = Models.Fit1D (
+    name                = <span class="hljs-string">&apos;NE2&apos;</span>                   , 
+    signal              =   signal_1              , 
+    othersignals        = [ signal_2 , signal_3 ] ,
+    background          =   wide_1   ,
+    otherbackgrounds    = [ wide_2 ] ,
+    others              = [ narrow_1 , narrow_2 ] , 
+    <span class="hljs-comment">##</span>
+    extended            = <span class="hljs-keyword">False</span> , <span class="hljs-comment">## &lt;-- HERE </span>
+    recursive           = <span class="hljs-keyword">True</span>  , <span class="hljs-comment">## &lt;-- HERE </span>
+    )
+</code></pre>
+<p>Setting initial fit parameters:</p>
+<pre><code class="lang-python">model_ne2.F[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.25</span>
+model_ne2.F[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.33</span>
+model_ne2.F[<span class="hljs-number">2</span>].value = <span class="hljs-number">0.50</span>
+model_ne2.F[<span class="hljs-number">3</span>].value = <span class="hljs-number">0.37</span>
+model_ne2.F[<span class="hljs-number">4</span>].value = <span class="hljs-number">0.74</span>
+model_ne2.F[<span class="hljs-number">5</span>].value = <span class="hljs-number">0.50</span>
+</code></pre>
+<p>The fit itself and access to fit parameters is the same as above.</p>
+<h3 id="non-extended-fit-model-with-compound-components-and-non-recursive-fit-fractions"><em>Non-extended fit model with compound components and non-recursive fit-fractions</em></h3>
+<pre><code class="lang-python">model_ne3 = Models.Fit1D (
+    name                = <span class="hljs-string">&apos;NE2&apos;</span>                   , 
+    signal              =   signal_1              , 
+    othersignals        = [ signal_2 , signal_3 ] ,
+    background          =   wide_1   ,
+    otherbackgrounds    = [ wide_2 ] ,
+    others              = [ narrow_1 , narrow_2 ] , 
+    <span class="hljs-comment">##</span>
+    combine_signals     = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE </span>
+    combine_backgrounds = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE </span>
+    combine_others      = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE </span>
+    <span class="hljs-comment">##</span>
+    extended            = <span class="hljs-keyword">False</span>  , <span class="hljs-comment">## &lt;--- HERE </span>
+    recursive           = <span class="hljs-keyword">False</span>    <span class="hljs-comment">## &lt;--- HERE </span>
+    )
+</code></pre>
+<p>Setting the initial values: </p>
+<pre><code class="lang-python">model_ne3. F[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.75</span>
+model_ne3. F[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.30</span>
+model_ne3.fS[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.33</span>
+model_ne3.fS[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.50</span>
+model_ne3.fB[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.41</span>
+model_ne3.fC[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.58</span>
+</code></pre>
+<p>The fit itself and access to fit parameters is the same as above.</p>
+<h3 id="non-extended-fit-model-with-compound-components-and-recursive-fit-fractions"><em>Non-extended fit model with compound components and recursive fit-fractions</em></h3>
+<pre><code class="lang-python">model_ne4 = Models.Fit1D (
+    name                = <span class="hljs-string">&apos;NE4&apos;</span>                   , 
+    signal              =   signal_1              , 
+    othersignals        = [ signal_2 , signal_3 ] ,
+    background          =   wide_1   ,
+    otherbackgrounds    = [ wide_2 ] ,
+    others              = [ narrow_1 , narrow_2 ] , 
+    <span class="hljs-comment">##</span>
+    combine_signals     = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE </span>
+    combine_backgrounds = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE</span>
+    combine_others      = <span class="hljs-keyword">True</span>   , <span class="hljs-comment">## &lt;--- HERE </span>
+    <span class="hljs-comment">##</span>
+    extended            = <span class="hljs-keyword">False</span>  , <span class="hljs-comment">## &lt;--- HERE </span>
+    recursive           = <span class="hljs-keyword">True</span>     <span class="hljs-comment">## &lt;--- HERE</span>
+</code></pre>
+<p>Setting the initial values:</p>
+<pre><code class="lang-python">model_ne4. F[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.75</span>
+model_ne4. F[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.80</span>
+model_ne4.fS[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.33</span>
+model_ne4.fS[<span class="hljs-number">1</span>].value = <span class="hljs-number">0.50</span>
+model_ne4.fB[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.41</span>
+model_ne4.fC[<span class="hljs-number">0</span>].value = <span class="hljs-number">0.50</span>
+</code></pre>
+<p>The fit itself and access to fit parameters is the same as above.</p>
+<p>All the ways to deal with <code>Fit1D</code> objects are illustrated here:</p>
+<p><script src="https://gist.github.com/VanyaBelyaev/1aa3edda0d6b7370db5dd8c1124f5aff.js"></script>
+The  corresponding output can be inspected <a href="https://gist.github.com/VanyaBelyaev/9bb427a2c93cba78e5aa4f4023d2686b" target="_blank">here</a></p>
+<h2 id="2d-case"><code>2D</code>-case</h2>
+<h3 id="generic-2d-case">Generic <code>2D</code>-case</h3>
+<h3 id="symmetric-2d-case">Symmetric <code>2D</code>-case</h3>
+<h2 id="3d-case"><code>3D</code>-case</h2>
+<h3 id="generic-3d-case">Generic <code>3D</code>-case</h3>
+<h3 id="symmetric-3d-case">Symmetric <code>3D</code>-case</h3>
+<h3 id="mixed-symmetry3d-case">Mixed-symmetry<code>3D</code>-case</h3>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="3d.html" class="navigation navigation-prev " aria-label="Previous page: 3D-models">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="splot.html" class="navigation navigation-next " aria-label="Next page: sPlot">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Compound fit models","level":"3.1.3","depth":2,"next":{"title":"sPlot","level":"3.1.4","depth":2,"path":"fitting/splot.md","ref":"fitting/splot.md","articles":[]},"previous":{"title":"3D-models","level":"3.1.2.5","depth":3,"path":"fitting/3d.md","ref":"fitting/3d.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fitting/compound.md","mtime":"2018-08-01T08:46:14.294Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:47:28.452Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

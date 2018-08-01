@@ -1,0 +1,865 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PDFs and the basic models · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="The Starterkit team and contributors">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-panels/panels.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-auto-render/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="signals.html" />
+    
+    
+    <link rel="prev" href="decorations.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    The ostap tutorials
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Getting started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../getting-started/VE.html">
+            
+                <a href="../getting-started/VE.html">
+            
+                    
+                    Values with uncertainties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../getting-started/Histos.html">
+            
+                <a href="../getting-started/Histos.html">
+            
+                    
+                    Simple operations with histograms
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../getting-started/Trees.html">
+            
+                <a href="../getting-started/Trees.html">
+            
+                    
+                    Simple operations with trees
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../getting-started/DBASE.html">
+            
+                <a href="../getting-started/DBASE.html">
+            
+                    
+                    Persistency
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../more-on-histograms/">
+            
+                <a href="../more-on-histograms/">
+            
+                    
+                    More on histograms
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../more-on-histograms/hparams.html">
+            
+                <a href="../more-on-histograms/hparams.html">
+            
+                    
+                    Histogram parameterization
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Using RooFit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="decorations.html">
+            
+                <a href="decorations.html">
+            
+                    
+                    Useful decorations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.2" data-path="models.html">
+            
+                <a href="models.html">
+            
+                    
+                    PDFs and the basic models
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.2.1" data-path="signals.html">
+            
+                <a href="signals.html">
+            
+                    
+                    Signal models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.2" data-path="backgrounds.html">
+            
+                <a href="backgrounds.html">
+            
+                    
+                    Background models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.3" data-path="others.html">
+            
+                <a href="others.html">
+            
+                    
+                    Other models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.4" data-path="2d.html">
+            
+                <a href="2d.html">
+            
+                    
+                    2D-models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2.5" data-path="3d.html">
+            
+                <a href="3d.html">
+            
+                    
+                    3D-models
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="compound.html">
+            
+                <a href="compound.html">
+            
+                    
+                    Compound fit models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="splot.html">
+            
+                <a href="splot.html">
+            
+                    
+                    sPlot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="weighted.html">
+            
+                <a href="weighted.html">
+            
+                    
+                    Weighted fits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="contraints.html">
+            
+                <a href="contraints.html">
+            
+                    
+                    Constraints
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../tools/">
+            
+                <a href="../tools/">
+            
+                    
+                    Tools
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../tools/tmva.html">
+            
+                <a href="../tools/tmva.html">
+            
+                    
+                    TMVA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../tools/chopping.html">
+            
+                <a href="../tools/chopping.html">
+            
+                    
+                    Chopping
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../tools/reweighting.html">
+            
+                <a href="../tools/reweighting.html">
+            
+                    
+                    Reweighting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../CONTRIBUTING.html">
+            
+                <a href="../CONTRIBUTING.html">
+            
+                    
+                    Contributing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" >
+            
+                <a target="_blank" href="ref://ostap-tutorials.pdf">
+            
+                    
+                    Download PDF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PDFs and the basic models</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="pdfs-and-the-basic-models">PDFs and the basic models</h1>
+<p>Ostap provides set of useful wrapper and helper  class that drastically simplify the construction and manipulations with <code>RooAbsPdf</code>-objects.</p>
+<p>E.g. consider the simplest case - creation of the Gaussian PDF using the standard way the standard way:</p>
+<pre><code class="lang-python">x     = ROOT.RooRealVar (<span class="hljs-string">&apos;x&apos;</span>    ,<span class="hljs-string">&apos;x&apos;</span>   ,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>) 
+mean  = ROOT.RooRealVar (<span class="hljs-string">&apos;mean&apos;</span> ,<span class="hljs-string">&apos;mean&apos;</span> ,<span class="hljs-number">3.100</span>,<span class="hljs-number">3.080</span>,<span class="hljs-number">3.120</span>) 
+sigma = ROOT.RooRealVar (<span class="hljs-string">&apos;sigma&apos;</span>,<span class="hljs-string">&apos;sigma&apos;</span>,<span class="hljs-number">0.015</span>,<span class="hljs-number">0.010</span>,<span class="hljs-number">0.025</span>) 
+bare  = ROOT.RooGaussian(<span class="hljs-string">&apos;Gauss&apos;</span>,<span class="hljs-string">&apos;Gaussian&apos;</span>, x , mean , sigma ) <span class="hljs-comment">## &lt;--- HERE</span>
+</code></pre>
+<p>In ostap it can be done in a bit simpler way </p>
+<pre><code class="lang-python">gauss = Gauss_pdf  ( <span class="hljs-string">&apos;Gauss&apos;</span> , 
+                        xvar  = ( <span class="hljs-number">2</span> , <span class="hljs-number">3</span> ) , 
+                      mean  = ( <span class="hljs-number">3.100</span> , <span class="hljs-number">3.080</span> , <span class="hljs-number">3.120</span> ) ,
+                      sigma = ( <span class="hljs-number">0.015</span> , <span class="hljs-number">0.010</span> , <span class="hljs-number">0.025</span> ) )
+gauss.draw() <span class="hljs-comment">## and one can immediately visualize the model</span>
+</code></pre>
+<p><div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(6844066910);" id="how--to-define-parameterclick-to-expand"><i class="fa fa-bell"></i> How  to define parameter?<span id="heading-6844066910">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-6844066910"><p>There are may ways to define parameter</p>
+<ol>
+<li>One can use the existing <code>RooAbsReal</code> object, e.g. <code>RooRealVar</code> or <code>RooConstVar</code>: <pre><code class="lang-python">mean  = ROOT.RooRealVar (<span class="hljs-string">&apos;mean&apos;</span> ,<span class="hljs-string">&apos;mean&apos;</span> ,<span class="hljs-number">3.100</span>,<span class="hljs-number">3.080</span>,<span class="hljs-number">3.120</span>) 
+gauss = Gauss_pdf  ( <span class="hljs-string">&apos;Gauss&apos;</span> , 
+                  xvar  = ( <span class="hljs-number">2</span> , <span class="hljs-number">3</span> ) , 
+                mean  = mean , <span class="hljs-comment">## &lt;--- HERE </span>
+                sigma = ( <span class="hljs-number">0.015</span> , <span class="hljs-number">0.010</span> , <span class="hljs-number">0.025</span> ) )
+</code></pre>
+</li>
+<li>One can use the plain number <code>value</code>, 2- or 3-element tuple <code>(minval,maxval)</code>  or <code>(value, minval,maxval)</code>. In this  case the variable of the type <code>RooRealVar</code> will be automatically created using this specification. (In case of the plain number, the corresponding parameter will  be fixed in the fit).<pre><code class="lang-python">gauss = Gauss_pdf  ( <span class="hljs-string">&apos;Gauss&apos;</span> , 
+                   xvar  = ( <span class="hljs-number">2</span> , <span class="hljs-number">3</span> ) ,                 <span class="hljs-comment">## &lt;-- HERE </span>
+                 mean  = ( <span class="hljs-number">3.100</span> , <span class="hljs-number">3.080</span> , <span class="hljs-number">3.120</span> ) , <span class="hljs-comment">## &lt;-- HERE </span>
+                 sigma =   <span class="hljs-number">0.015</span> )                   <span class="hljs-comment">## &lt;-- HERE </span>
+</code></pre>
+</li>
+</ol>
+</div></div>
+For all models, all known parameter are  accessible (and documented)  as python <em>property</em></p>
+<pre><code class="lang-python">gauss = ...
+help(gauss.xvar)
+<span class="hljs-keyword">print</span> gauss.sigma 
+help(gauss.mean)
+</code></pre>
+<p>There are many predefined models, accesible  via <code>ostap.fitting.models</code> module:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> ostap.fitting.models <span class="hljs-keyword">as</span> Models
+help(Models)
+</code></pre>
+<h2 id="base-class-pdf">Base class <code>PDF</code></h2>
+<p>All  pstap-based fit models and PDFs (directy or indirectly) inherit from python base class <code>PDF</code>, that provides great additional functionality, 
+in particular  the methods <code>fitTo</code> and <code>draw</code> that simplfy the fitting procedure itself and visualzation of the results:</p>
+<h3 id="the-method-fitto">The method <code>fitTo</code></h3>
+<pre><code class="lang-python">gauss   = Gauss_pdf ( ... ) 
+dataset = ....
+result , frame = gauss.fitTo ( dataset , silent = <span class="hljs-keyword">True</span> , reFit = <span class="hljs-number">2</span> ) 
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;FitResults: %s&apos;</span> % result
+</code></pre>
+<p>All the native <code>RooFit</code> <em>commands</em> can be specified as optional arguments, as well as many commands specific for ostap, 
+e.g. <code>reFit=2</code> above means <em>in case of fit failure, try to refit it (up to 2 times)</em>, and the meaning of  <code>silent=True</code> is obvious.</p>
+<h3 id="the-method-draw">The method <code>draw</code></h3>
+<pre><code class="lang-python">gauss   = Gauss_pdf ( ... ) 
+dataset = ....
+result , frame = gauss.fitTo ( dataset , silent = <span class="hljs-keyword">True</span> , reFit = <span class="hljs-number">2</span> ) 
+<span class="hljs-keyword">print</span> <span class="hljs-string">&apos;FitResults: %s&apos;</span> % result 
+frame = gauss.draw ( dataset , nbins = <span class="hljs-number">100</span> )
+</code></pre>
+<p><em>Fitting</em>  and <em>vizualisation</em>  can be combined:</p>
+<pre><code class="lang-python">gauss   = Gauss_pdf ( ... ) 
+dataset = ....
+result , frame = gauss.fitTo ( dataset , draw  = <span class="hljs-keyword">True</span> , nbins = <span class="hljs-number">100</span> ) <span class="hljs-comment">## draw it after the fit</span>
+</code></pre>
+<h3 id="access-to-the-underlying-rooabspdf-object">Access to the underlying <code>RooAbsPdf</code> object</h3>
+<p>The access to the underlying bare <code>RooAbsPdf</code>-object can be done (if needed) via the propety <code>pdf</code> </p>
+<pre><code class="lang-python">gauss = Gauss_pdf ( ... ) 
+root_pdf  = gauss.pdf
+</code></pre>
+<h3 id="other-methods"><em>Other methods</em></h3>
+<p><code>PDF</code> class is equipped with many other useful methods: </p>
+<ul>
+<li><code>fitHisto</code>: The method <code>fitTo</code> can be <em>blindly</em> applied not only to <code>RooDataSet</code>-objects, but also to the histograms:<pre><code class="lang-python">histo = ...
+r, f   = gauss.fitTo ( histo , draw = <span class="hljs-keyword">True</span> )
+</code></pre>
+However the dedicated method <code>fitHisto</code> sometimes could be more usefu <pre><code class="lang-python">histo = ...
+gauss.fitHisto ( histo , draw = <span class="hljs-keyword">True</span> )
+</code></pre>
+</li>
+<li><code>draw_nll</code>: vizualize  NLL-scans and LL-profiles <pre><code class="lang-python">r , f = gauss.fitTo ( dataset , draw = <span class="hljs-keyword">False</span> )
+nll     , f1 = gauss.draw_nll ( <span class="hljs-string">&apos;sigma&apos;</span> ,  dataset )                  <span class="hljs-comment">## NLL</span>
+profile , f2 = gauss.draw_nll ( <span class="hljs-string">&apos;sigma&apos;</span> ,  dataset , profile = <span class="hljs-keyword">True</span> ) <span class="hljs-comment">## PROFILE</span>
+</code></pre>
+<ul>
+<li><code>generate</code> : tiny but useful wrapper for <code>RooAbsPdf::generate</code></li>
+<li><code>minmax</code>   : make the estimates for the minimal and maximal values for the PDF.  For some models it is done analytically or semianalitycally, for remainig models it is done using  random shoots. <pre><code class="lang-python">mn,mx = gauss.minmax( <span class="hljs-number">500000</span> )
+</code></pre>
+</li>
+<li><code>__call__</code> : it  allows to use <code>PDF</code> as simple <em>function</em><pre><code class="lang-python">gauss = ...
+<span class="hljs-keyword">print</span> gauss( <span class="hljs-number">3.090</span> ), gauss( <span class="hljs-number">3.100</span> ), gauss( <span class="hljs-number">3.110</span> )
+</code></pre>
+</li>
+<li>Several <em>statistical</em>   functions. For some models analytical orsemianalitycal calculations are used, for  remnig models numerical estimations are performed using <code>scipy</code> </li>
+<li><code>rms</code>            :   <em>rms</em> for  the distribution </li>
+<li><code>fwhm</code>           :  <em>full width  at half maximum</em>  </li>
+<li><code>fwhm</code>           :  <em>full width  at half maximum</em>  </li>
+<li><code>moment</code>         :  the <em>moment</em> of the distribution   </li>
+<li><code>central_moment</code> :  the <em>central moment</em> of the distribution   </li>
+<li><code>skewness</code>   : <em>skewness</em> for the  distribution </li>
+<li><code>kurtosis</code>   : <em>kurtosis</em> for the  distribution </li>
+<li><code>mode</code>       : the <em>mode</em> for the distribution </li>
+<li><code>median</code>     : <em>median</em> value for the distribution</li>
+<li><code>get_mean</code>   : <em>mean</em> value for the distribution</li>
+<li><code>cl_symm</code>    : <em>symmetric confidence interval</em> </li>
+<li><code>cl_asymm</code>   : <em>asymmetric confidence interval</em> </li>
+<li><code>quantile</code>   : <em>quantile</em> value for the distribution </li>
+<li><code>integral</code>   : <em>integral</em> for the distribution </li>
+<li><code>derivative</code> : <em>derivative</em> of the PDF at the given point</li>
+</ul>
+</li>
+</ul>
+<h3 id="convolution">Convolution</h3>
+<p>Ostap  provides helper class that  simplify construction of fit models taking into accotun  resolution functions:</p>
+<pre><code class="lang-python">pdf = ...
+cnv_pdf = Convolution_pdf ( <span class="hljs-string">&apos;Cnv            &apos;</span> , 
+                             pdf = pdf        , 
+                             resolution = ... )
+</code></pre>
+<p>As <code>resolution</code> one can specify </p>
+<ol>
+<li>Any resolutuon model (<code>RooAbsPdf</code>)</li>
+<li>simple number <code>s</code>, in this case the  gaussian resolution model with sigma = <code>s</code> will be used </li>
+<li>Any <code>RooAbsReal</code> objetct, it will be used as sigma for gaussian resoltuion model</li>
+</ol>
+<p>There are  several optional flags </p>
+<ul>
+<li><code>useFFT=True</code>  : use <em>Fast-Fourier-Transform</em> or plain numerical convolution ?</li>
+<li><code>nbins=100000</code> : sampling for <em>Fast-Fourier-Transform</em></li>
+<li><code>buffer=0.25</code>  : buffer size for <em>Fast-Fourier-Transform</em>, argument for <code>setBufferFraction</code> call</li>
+<li><code>nsigmas=6</code>    : window size for plain numeric convolution, the argument  for <code>setConvolutionWindow</code> call</li>
+</ul>
+<h2 id="generic-wrapper--generic1dpdf">Generic Wrapper  <em>Generic1D_pdf</em></h2>
+<p>The bare <code>RooAbsPdf</code> could be easily converted to ostap-form using the generic wrapper <code>Generic1D_pdf</code>:</p>
+<pre><code class="lang-python">bare = ROOT.RooGaussian(<span class="hljs-string">&apos;Gauss&apos;</span>,<span class="hljs-string">&apos;Gaussian&apos;</span>, x , mean , sigma )
+gauss = Generic1D_pdf ( pdf = bare , xvar = x ) 
+gauss.draw() <span class="hljs-comment">## one can immediately use the full power of ostap-PDF</span>
+</code></pre>
+<p>In a similar way there are generic wrappers for <code>2D</code> and <code>3D</code>-models:</p>
+<pre><code class="lang-python">bare2D = ... 
+bare3D = ... 
+ostap_2d =  Generic2D_pdf ( pdf = bare2D , xvar = x ,  xvar = y ) 
+ostap_3d =  Generic2D_pdf ( pdf = bare3D , xvar = x ,  xvar = y , zvar = z )
+</code></pre>
+<h2 id="1d-models"><code>1D</code>-models</h2>
+<p>There are many predefined models, accessible  via <code>ostap.fitting.models</code> module:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> ostap.fitting.models <span class="hljs-keyword">as</span> Models
+help(Models)
+</code></pre>
+<h3 id="generic-backrgound-models"><em>Generic backrgound models</em></h3>
+<h4 id="polynomial-models"><em>Polynomial models</em></h4>
+<p>Here the list of the most useful polynomial models:</p>
+<ul>
+<li><code>PolyPos_pdf</code>  : positive (non-negative) polynomial </li>
+<li><code>PolyEven_pdf</code> : positibe (non-negative) <em>symmetric</em> polynomial:  <code>p(x)= p(2*x0-x)</code>, where <code>x0=0.5*(xmin+xmax)</code> </li>
+<li><code>Monotonic_pdf</code> : positive (non-negative) polynomial with fixed sign of the first derivative: posynomial either non-decreasing or non-increasing</li>
+<li><code>Convex_pdf</code> : positive (non-negative) polynomial with fixed signs of the first (non-decreasing or non-increasing) and second (convex or concave) derivatives</li>
+<li><code>ConvexOnly_pdf</code> : positive (non-negative) polynomial with fixed sign of the second (convex or concave) derivative</li>
+</ul>
+<h4 id="phasespace-based-models"><em>Phasespace-based models</em></h4>
+<p>Here the list of the most useful phasespace-based models:</p>
+<ul>
+<li><code>PS2_pdf</code>       : 2-body phase space (no parameters)</li>
+<li><code>PSLeft_pdf</code>    : Low  edge of N-body phase space </li>
+<li><code>PSRight_pdf</code>   : High edge of L-body phase space from N-body decays  </li>
+<li><code>PSNL_pdf</code>      : approximation for L-body phase space from N-body decays  </li>
+<li><code>PS23L_pdf</code>     : 2-body phase space from 3-body decays with orbital momenta</li>
+</ul>
+<h4 id="polynomial-based-models"><em>Polynomial-based models</em></h4>
+<ul>
+<li><code>Bkg_pdf</code>      : The  exponential function, modulated by the positive polynomial. In practice it is the most useful function to describe the combinatorial background</li>
+<li><code>PSPol_pdf</code>    :  L-body phase space from N-body decays modulated by a positive polynomial  </li>
+<li><code>Sigmoid_pdf</code>  : sigmoid function (<code>atanh</code>) modulated by the positive polynomial </li>
+<li><code>TwoExpoPoly_pdf</code> : difference of two exponents, modulated by the positive polynomial</li>
+</ul>
+<h4 id="spline-based-models"><em>Spline-based models</em></h4>
+<p>The models, based on <em>B-splines</em> : </p>
+<ul>
+<li><code>PSpline_pdf</code>      : positive (non-negative)  spline </li>
+<li><code>MSpline_pdf</code>      : positive (non-negative) monothonic (non-decreasing or non-increasing) spline </li>
+<li><code>CSpline_pdf</code>      : positive (non-negative) monothonic (non-decreasing or non-inclreasing) convex or concave spline </li>
+<li><code>CPSpline_pdf</code>     : positive (non-negative) convex or concave spline </li>
+</ul>
+<h3 id="generic-signal-models"><em>Generic signal models</em></h3>
+<p>The signal-like models (peaks):</p>
+<pre><code>&apos;Gauss_pdf&apos;              , ## simple     Gauss
+&apos;CrystalBall_pdf&apos;        , ## Crystal-ball function
+&apos;CrystalBallRS_pdf&apos;      , ## right-side Crystal-ball function
+&apos;CB2_pdf&apos;                , ## double-sided Crystal Ball function    
+&apos;Needham_pdf&apos;            , ## Needham function for J/psi or Y fits 
+&apos;Apolonios_pdf&apos;          , ## Apolonios function         
+&apos;Apolonios2_pdf&apos;         , ## Apolonios function         
+&apos;BifurcatedGauss_pdf&apos;    , ## bifurcated Gauss
+&apos;DoubleGauss_pdf&apos;        , ## double Gauss
+&apos;GenGaussV1_pdf&apos;         , ## generalized normal v1  
+&apos;GenGaussV2_pdf&apos;         , ## generalized normal v2 
+&apos;SkewGauss_pdf&apos;          , ## skewed gaussian (temporarily removed)
+&apos;Bukin_pdf&apos;              , ## generic Bukin PDF: skewed gaussian with exponential tails
+&apos;StudentT_pdf&apos;           , ## Student-T function 
+&apos;BifurcatedStudentT_pdf&apos; , ## bifurcated Student-T function
+&apos;SinhAsinh_pdf&apos;          , ## &quot;Sinh-arcsinh distributions&quot;. Biometrika 96 (4): 761
+&apos;JohnsonSU_pdf&apos;          , ## JonhsonSU-distribution 
+&apos;Atlas_pdf&apos;              , ## modified gaussian with exponenital tails 
+&apos;Slash_pdf&apos;              , ## symmetric peakk wot very heavy tails 
+&apos;RaisingCosine_pdf&apos;      , ## Raising  Cosine distribution
+&apos;QGaussian_pdf&apos;          , ## Q-gaussian distribution
+&apos;AsymmetricLaplace_pdf&apos;  , ## asymmetric laplace 
+&apos;Sech_pdf&apos;               , ## hyperboilic secant  (inverse-cosh) 
+&apos;Logistic_pdf&apos;           , ## Logistic aka &quot;sech-squared&quot;   
+#
+## pdfs for &quot;wide&quot; peaks, to be used with care - phase space corrections are large!
+# 
+&apos;BreitWigner_pdf&apos;      , ## (relativistic) 2-body Breit-Wigner
+&apos;Flatte_pdf&apos;           , ## Flatte-function  (pipi)
+&apos;Flatte2_pdf&apos;          , ## Flatte-function  (KK) 
+&apos;LASS_pdf&apos;             , ## kappa-pole
+&apos;Bugg_pdf&apos;             , ## sigma-pole
+&apos;Swanson_pdf&apos;          , ## Swanson&apos;s S-wave cusp 
+##
+&apos;Voigt_pdf&apos;            , ## Voigt-profile
+&apos;PseudoVoigt_pdf&apos;      , ## PseudoVoigt-profile
+&apos;BW23L_pdf&apos;            , ## BW23L
+</code></pre><h2 id="2d-and-3d-cases"><code>2D</code> and <code>3D</code>-cases</h2>
+<p>For <code>2D</code> and <code>3D</code> cases there  are base classes <code>PDF2</code> and <code>PDF3</code> that in turn inhetic from <code>PDF</code> and gets all the nice functionality.
+Of course several new method specific  for <code>2D</code> and <code>3D</code>-cases  are added and th ebehaviosu of some <code>1D</code>-specific methods is  fixed. </p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="decorations.html" class="navigation navigation-prev " aria-label="Previous page: Useful decorations">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="signals.html" class="navigation navigation-next " aria-label="Next page: Signal models">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PDFs and the basic models","level":"3.1.2","depth":2,"next":{"title":"Signal models","level":"3.1.2.1","depth":3,"path":"fitting/signals.md","ref":"fitting/signals.md","articles":[]},"previous":{"title":"Useful decorations","level":"3.1.1","depth":2,"path":"fitting/decorations.md","ref":"fitting/decorations.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"fitting/models.md","mtime":"2018-08-01T08:46:14.294Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:47:28.452Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-panels/panels.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/katex.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/auto-render.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-katex-auto-render/enable-auto-render.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-menu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-otherlink/js/otherlink.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
