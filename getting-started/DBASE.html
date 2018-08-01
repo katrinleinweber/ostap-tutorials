@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Getting started · GitBook</title>
+        <title>Persistency · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -65,10 +65,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="VE.html" />
+    <link rel="next" href="../more-on-histograms/" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="Trees.html" />
     
 
     </head>
@@ -117,7 +117,7 @@
         
         
     
-        <li class="chapter active" data-level="2.1" data-path="./">
+        <li class="chapter " data-level="2.1" data-path="./">
             
                 <a href="./">
             
@@ -170,7 +170,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.4" data-path="DBASE.html">
+        <li class="chapter active" data-level="2.1.4" data-path="DBASE.html">
             
                 <a href="DBASE.html">
             
@@ -523,7 +523,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Getting started</a>
+        <a href=".." >Persistency</a>
     </h1>
 </div>
 
@@ -538,25 +538,69 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="getting-started">Getting started</h1>
-<p>The main ingredients of <code>Ostap</code> are</p>
-<ul>
-<li>preconfigured ipython script <code>ostap</code>, that can be invoked from the command line.<pre><code class="lang-bash">ostap
-</code></pre>
-<div class="panel panel-success"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(8636228158);" id="challenge"><i class="fa fa-square-o"></i> Challenge<span id="heading-8636228158"></span></h3></div><div class="panel-body" id="panel-8636228158"><p>Invoke the script with <code>-h</code> option to get the whole list of all command line options and keys </p>
-</div></div>
-Optionally one can specify the list of python files to be executed before appearance of the interactive command prompt:<pre><code class="lang-bash">ostap a.py b.py c.py d.py
-</code></pre>
-The list of optional arguments can include also root-files, in this case the files will be opened and their handlers will 
-be available via local list <code>root_files</code><pre><code class="lang-bash">ostap a.py b.py c.py d.py file1.root file2.root e.py file3.root
-</code></pre>
-Also <code>ROOT</code> macros can be specified on the command line <pre><code class="lang-bash">ostap a.py b.py c.py d.py file1.root q1.C file2.root q2.C e.py file3.root q4.C
-</code></pre>
-</li>
+                                <h1 id="persistency">Persistency</h1>
+<h2 id="ostapiozipshelve"><code>ostap.io.zipshelve</code></h2>
+<p>Ostap offers very nice&amp;efficient way to store the objects in persistent dbase.
+This persistency is build around <a href="https://docs.python.org/2/library/shelve.html" target="_blank"><code>shelve</code> module</a> and differs in two way</p>
+<ol>
+<li>the conntent of payload is compressed, using <a href="https://docs.python.org/2/library/zlib.html" target="_blank"><code>zlib</code> module</a> making the data base very compact <ul>
+<li>(optionally) the whole database can ve further  <code>gzip</code>&apos;ed using <a href="https://docs.python.org/2/library/gzip.html" target="_blank"><code>gzip</code> module</a>, if the extension <code>.gz</code> is provided. It makes data banse even more compact.</li>
 </ul>
-<p>The script automatically opens <code>TCanvas</code> window (unless <code>--no-canvas</code> option is specified) 
-with (a little bit modified) LHCb style. It also loads necessary decorators for <code>ROOT</code> classes. 
-At last it executes the python scripts and opens root-files, specified as command line arguments.</p>
+</li>
+<li>in addition to the native <code>dict</code> interface from <code>shelve</code>, more extensiveinterface with more methods is supported. </li>
+</ol>
+<p>Create database and write objects to it: </p>
+<pre><code class="lang-python">a = ...
+<span class="hljs-keyword">import</span> ostap.io.zipshelve <span class="hljs-keyword">as</span> DBASE 
+<span class="hljs-keyword">with</span> DBASE.open ( <span class="hljs-string">&apos;my_dbase.db&apos;</span> ) <span class="hljs-keyword">as</span> db : <span class="hljs-comment">## create DBASE </span>
+  db.ls() 
+  db[<span class="hljs-string">&apos;a&apos;</span>] =  a
+  db[<span class="hljs-string">&apos;histo&apos;</span>] = ROOT.TH1D(<span class="hljs-string">&apos;h1&apos;</span>,<span class="hljs-string">&apos;&apos;</span>,<span class="hljs-number">10</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)
+</code></pre>
+<p>Reading objects from database </p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> DBASE.open ( <span class="hljs-string">&apos;my_dbase.db&apos;</span> , <span class="hljs-string">&apos;read&apos;</span>) <span class="hljs-keyword">as</span> db : <span class="hljs-comment">## read DBASE </span>
+  db.ls() 
+  b  = db[<span class="hljs-string">&apos;a&apos;</span>] 
+  h2 = db[<span class="hljs-string">&apos;histo&apos;</span>]
+</code></pre>
+<p>One can store in database all <em>pickable</em> objects, that means all python objects, all (serializeable) <code>ROOT</code> objects. All <code>C++</code> objects  with <code>LCG/Reflex/Cint</code>-dictionaries are also could be stored database. In practice, everything is storable, including complex combination of python&amp;C++ objects, like dictionary of historgams and python classed, inherited from <code>C++</code>-base classes.   </p>
+<h2 id="plain-roottfile">Plain <code>ROOT.TFile</code></h2>
+<p>Ostap adds some  decorations even for the plain <code>ROOT.TFile</code>, making its interface more <em>pythonic</em>:</p>
+<pre><code class="lang-python">rfile = ...
+obj   = rfile[<span class="hljs-string">&apos;A/B/C/myobj&apos;</span>]     <span class="hljs-comment">## READ  object form the file/directory</span>
+rfile[<span class="hljs-string">&apos;A/B/C/myobj2&apos;</span>] = object2  <span class="hljs-comment">## WRITE object to the file/directory </span>
+obj  = rfile.A.B.C.myobj              <span class="hljs-comment">## another way to access to the object</span>
+obj  = rfile.get ( <span class="hljs-string">&apos;A/B/C/q&apos;</span> , <span class="hljs-keyword">None</span> ) <span class="hljs-comment">## one more way to get object </span>
+<span class="hljs-keyword">for</span> obj <span class="hljs-keyword">in</span> rfile : <span class="hljs-keyword">print</span> obj          <span class="hljs-comment">## loop over all objects in file</span>
+<span class="hljs-keyword">for</span> key,obj <span class="hljs-keyword">in</span> rfile.iteritems() : <span class="hljs-keyword">print</span> key, obj             <span class="hljs-comment">## another loop</span>
+<span class="hljs-keyword">for</span> key,obj <span class="hljs-keyword">in</span> rfile.iteritems( ROOT.TH1 ) : <span class="hljs-keyword">print</span> key, obj   <span class="hljs-comment">## advanced loop, get only histograms </span>
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> rfile.keys()     : <span class="hljs-keyword">print</span> k   <span class="hljs-comment">## get all keys and loop over them </span>
+<span class="hljs-keyword">for</span> k <span class="hljs-keyword">in</span> rfile.iterkeys() : <span class="hljs-keyword">print</span> k   <span class="hljs-comment">## loop over all keys in the file</span>
+<span class="hljs-keyword">del</span> rfile[<span class="hljs-string">&apos;A/B&apos;</span>]                      <span class="hljs-comment">## delete the object from the file</span>
+rfile.rm ( <span class="hljs-string">&apos;A/B&apos;</span> )                    <span class="hljs-comment">## delete the object from the file</span>
+<span class="hljs-keyword">if</span> <span class="hljs-string">&apos;A/MyHisto&apos;</span> <span class="hljs-keyword">in</span> rfile          : <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;OK!&apos;</span> <span class="hljs-comment">## check presence of the key</span>
+<span class="hljs-keyword">if</span> rfile.has_key ( <span class="hljs-string">&apos;A/MyHisto&apos;</span> ) : <span class="hljs-keyword">print</span> <span class="hljs-string">&apos;OK!&apos;</span> <span class="hljs-comment">## check presence of the key</span>
+<span class="hljs-keyword">with</span> ROOT.TFile(<span class="hljs-string">&apos;aa.root&apos;</span>) <span class="hljs-keyword">as</span> rfile : rfile.ls() <span class="hljs-comment">## context manager protocol</span>
+</code></pre>
+<h2 id="rootonlyshelve"><code>RootOnlyShelve</code></h2>
+<p>The module <code>ostap.io.rootshelve</code> offers the thin wrapper over <code>ROOT.TFile</code> that implement <code>shelve</code>-interface. As a resutl one gets a ligth database build a top of underlying <code>ROOT.TFile</code>, where <code>ROOT</code>-objects could be stored: </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> ostap.io.rootshelve <span class="hljs-keyword">import</span> RooOnlyShelf
+db = RooOnlyShelf(<span class="hljs-string">&apos;mydb.root&apos;</span>,<span class="hljs-string">&apos;c&apos;</span>)
+h1 = ...
+db [<span class="hljs-string">&apos;histogram&apos;</span>] = h1
+db.ls()
+</code></pre>
+<h2 id="rootshelve"><code>RootShelve</code></h2>
+<p>The module <code>ostap.io.rootshelve</code> offers also more  sophisticated wrapper over <code>ROOT.TFile</code> that also implements <code>shelve</code>-interface and able to store ROOT and any other <em>pickable</em> objects </p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> ostap.io.rootshelve <span class="hljs-keyword">import</span> RootShelf
+db = RootShelf(<span class="hljs-string">&apos;mydb.root&apos;</span>,<span class="hljs-string">&apos;c&apos;</span>)
+h1 = ...
+db [<span class="hljs-string">&apos;histogram&apos;</span>] = h1
+db [<span class="hljs-string">&apos;histogramlist&apos;</span>] = h1,h2,h3
+db.ls()
+</code></pre>
+<p><div class="panel panel-info"><div class="panel-heading"><h3 class="panel-title" onclick="javascript:toggle(4134359365);" id="in-details-click-to-expand"><i class="fa fa-bell"></i> In details ...<span id="heading-4134359365">Click to expand</span></h3></div><div class="panel-body" style="display: none" id="panel-4134359365"><p>For non-<code>ROOT</code> objects, database actually stores them as <code>ROOT::TString</code> objects carrying their pickle representation<br>with on-flight removal/substitutions of some magic symbol sequences, since <code>ROOT::TString</code> is not a real <code>BLOB</code>. </p>
+</div></div></p>
 
                                 
                                 </section>
@@ -584,12 +628,12 @@ At last it executes the python scripts and opens root-files, specified as comman
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: The ostap tutorials">
+                <a href="Trees.html" class="navigation navigation-prev " aria-label="Previous page: Simple operations with trees">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="VE.html" class="navigation navigation-next " aria-label="Next page: Values with uncertainties">
+                <a href="../more-on-histograms/" class="navigation navigation-next " aria-label="Next page: More on histograms">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -600,7 +644,7 @@ At last it executes the python scripts and opens root-files, specified as comman
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting started","level":"2.1","depth":1,"next":{"title":"Values with uncertainties","level":"2.1.1","depth":2,"path":"getting-started/VE.md","ref":"getting-started/VE.md","articles":[]},"previous":{"title":"The ostap tutorials","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"getting-started/README.md","mtime":"2018-08-01T08:26:35.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:27:48.896Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Persistency","level":"2.1.4","depth":2,"next":{"title":"More on histograms","level":"2.2","depth":1,"path":"more-on-histograms/README.md","ref":"more-on-histograms/README.md","articles":[{"title":"Histogram parameterization","level":"2.2.1","depth":2,"path":"more-on-histograms/hparams.md","ref":"more-on-histograms/hparams.md","articles":[]}]},"previous":{"title":"Simple operations with trees","level":"2.1.3","depth":2,"path":"getting-started/Trees.md","ref":"getting-started/Trees.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","panels@git+https://github.com/lhcb/gitbook-plugin-panels.git#master","katex-auto-render@git+https://github.com/lhcb/gitbook-plugin-katex-auto-render.git#master","collapsible-menu","otherlink"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"collapsible-menu":{},"search":{},"otherlink":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"panels":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"katex-auto-render":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"The Starterkit team and contributors","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"gitbook":"*"},"file":{"path":"getting-started/DBASE.md","mtime":"2018-08-01T08:26:35.951Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-01T08:27:48.896Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
