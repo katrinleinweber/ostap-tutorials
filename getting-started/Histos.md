@@ -2,7 +2,7 @@
 
 ## Historgam content
  
-`Ostap.PyRoUts` module provides two ways to access the histogram content
+`ostap.histos.histos` module provides two ways to access the histogram content
  - by bin index, using operator `[]`: for 1D historgam index is a simple integer number, for 2D and 3D-histograms the bin index is a 2 or 3-element tuple
  - using _functional_ interface with operator`()`.
 ```python
